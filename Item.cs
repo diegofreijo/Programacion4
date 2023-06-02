@@ -1,4 +1,4 @@
-abstract class Item
+abstract class Item : IUsable
 {
     protected string nombre;
 
@@ -8,4 +8,9 @@ abstract class Item
     }
 
     public abstract void Usar(Jugador jugador);
+
+    public override string ToString()
+    {
+        return $"Item {nombre}";
+    }
 }

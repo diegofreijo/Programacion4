@@ -10,7 +10,7 @@ class ItemCurador : Item
 
     public override void Usar(Jugador jugador)
     {
-        Console.WriteLine($"Usando item curador llamado {nombre}");
+        // Console.WriteLine($"Usando item curador llamado {nombre}");
         jugador.Salud += this.cura;
     }
 }
