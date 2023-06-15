@@ -1,8 +1,11 @@
+using TestEvents;
+
 class Jugador
 {
     const int SALUD_MAXIMA = 100;
 
-    int saludActual;
+    public event Action<int>? SaludCambiada;
+    private int saludActual;
 
     public int Salud
     {
@@ -17,16 +20,24 @@ class Jugador
                 saludActual = SALUD_MAXIMA;
             else
                 saludActual = value;
+
+            if (SaludCambiada != null)
+                SaludCambiada(saludActual);
         }
     }
 
     public Jugador()
     {
-        this.saludActual = Jugador.SALUD_MAXIMA;
+        this.Salud = Jugador.SALUD_MAXIMA;
     }
 
     public Jugador(int saludActual)
     {
-        this.saludActual = saludActual;
+        this.Salud = saludActual;
+    }
+
+    public void Daniar(int danio)
+    {
+        this.Salud -= danio;
     }
 }

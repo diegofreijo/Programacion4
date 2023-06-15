@@ -1,59 +1,77 @@
-﻿class Rifa : IWeightable
-{
-    public string jugador;
-    public int weight;
+﻿// class TestRandom
+// {
+//     class Rifa : IWeightable
+//     {
+//         public Jugador jugador;
+//         public int weight;
 
-    public int Weight => weight;
+//         public int Weight => weight;
 
-    public override string ToString()
-    {
-        return jugador;
-    }
-}
+//         public override string ToString()
+//         {
+//             return jugador.ToString();
+//         }
+//     }
 
-class TestRandom
-{
-    static Random rand = new Random();
-    static List<EscuelaDeMagia> escuelas = new List<EscuelaDeMagia>()
-    {
-        EscuelaDeMagia.Vida, EscuelaDeMagia.Muerte, EscuelaDeMagia.Naturaleza, EscuelaDeMagia.Fuego
-    };
+//     static Random rand = new Random();
+//     static List<EscuelaDeMagia> escuelas = new List<EscuelaDeMagia>()
+//     {
+//         EscuelaDeMagia.Vida, EscuelaDeMagia.Muerte, EscuelaDeMagia.Naturaleza, EscuelaDeMagia.Fuego
+//     };
 
-    public static void Run()
-    {
-        // for (int i = 0; i < 10; i++)
-        // {
-        //     var escuela = EscuelaAlAzar();
-        //     Console.WriteLine(escuela);
-        // }
+//     public static void Run()
+//     {
+//         // for (int i = 0; i < 10; i++)
+//         // {
+//         //     var escuela = EscuelaAlAzar();
+//         //     Console.WriteLine(escuela);
+//         // }
 
-        WeightedList<Rifa> rifas = new WeightedList<Rifa>(
-            new List<Rifa>()
-            {
-                new Rifa() { jugador = "Diego", weight = 3 },
-                new Rifa() { jugador = "Cami", weight = 2 },
-                new Rifa() { jugador = "Maxi", weight = 1 },
-            }
-        );
+//         WeightedList<Rifa> rifas = new WeightedList<Rifa>(
+//             new List<Rifa>()
+//             {
+//                 new Rifa() { jugador = new Jugador() {nombre = "diego"}, weight = 3 },
+//             }
+//         );
 
-        for (int i = 0; i < 100; i++)
-        {
-            Console.WriteLine(rifas.Evaluate());
-        }
-    }
+//         // Mal diseño: acopla el peso al jugador!
+//         // WeightedList<Jugador> jugadores = new WeightedList<Jugador>(
+//         //     new List<Jugador>()
+//         //     {
+//         //         new Jugador() { nombre = "diego", Weight = 2 },
+//         //         new Jugador() { nombre = "cami", Weight = 5 },
+//         //         new Jugador() { nombre = "maxi", Weight = 1},
+//         //     }
+//         // );
 
-    private static EscuelaDeMagia EscuelaAlAzar()
-    {
-        return NextInList<EscuelaDeMagia>(escuelas);
-    }
+//         var elegidos = new List<Jugador>();
 
-    private static bool NextBool()
-    {
-        return rand.Next(2) == 1;
-    }
+//         for (int i = 0; i < 100; i++)
+//         {
+//             var rifaElegida = rifas.Evaluate();
+//             elegidos.Add(rifaElegida.jugador);
+//         }
 
-    private static T NextInList<T>(List<T> lista)
-    {
-        return lista[rand.Next(lista.Count)];
-    }
-}
+//     }
+
+//     class Jugador
+//     {
+//         public string nombre;
+//         // public int Weight { get; set; }
+//     }
+
+//     private static EscuelaDeMagia EscuelaAlAzar()
+//     {
+//         return NextInList<EscuelaDeMagia>(escuelas);
+//     }
+
+//     private static bool NextBool()
+//     {
+//         return rand.Next(2) == 1;
+//     }
+
+//     private static T NextInList<T>(List<T> lista)
+//     {
+//         return lista[rand.Next(lista.Count)];
+//     }
+// }

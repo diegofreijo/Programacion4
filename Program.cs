@@ -4,6 +4,7 @@ class Program
     static void Main()
     {
         // TestItems.Run();
-        TestRandom.Run();
+        // TestRandom.Run();
+        TestEvents.TestEvents.Run();
     }
 }
