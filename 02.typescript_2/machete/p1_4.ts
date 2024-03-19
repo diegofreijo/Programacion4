@@ -16,31 +16,31 @@ namespace p1_4 {
         | { tipo: "no_encontrado" }
 
 
-function armarMapa(usuarios: Usuario[]): Map<string, Usuario> {
-    var ret = new Map<string, Usuario>();
+    function armarMapa(usuarios: Usuario[]): Map<string, Usuario> {
+        var ret = new Map<string, Usuario>();
 
-    for (let i = 0; i < usuarios.length; i++) {
-        const usuario = usuarios[i];
-        if (usuario.tipo === "persona") {
-            if (!ret.has(usuario.persona.nombre))
-                ret.set(usuario.persona.nombre, usuario);
-        } else if (usuario.tipo === "nombre") {
-            if (!ret.has(usuario.nombre))
-                ret.set(usuario.nombre, usuario);
+        for (let i = 0; i < usuarios.length; i++) {
+            const usuario = usuarios[i];
+            if (usuario.tipo === "persona") {
+                if (!ret.has(usuario.persona.nombre))
+                    ret.set(usuario.persona.nombre, usuario);
+            } else if (usuario.tipo === "nombre") {
+                if (!ret.has(usuario.nombre))
+                    ret.set(usuario.nombre, usuario);
+            }
         }
+
+        return ret;
     }
 
-    return ret;
-}
+    function buscarPorNombre(nombre: string, usuariosMap: Map<string, Usuario>): ResultadoBusqueda {
+        const usuario = usuariosMap.get(nombre);
+        if (usuario === undefined)
+            return { tipo: "no_encontrado" };
+        else
 
-function buscarPorNombre(nombre: string, usuariosMap: Map<string, Usuario>): ResultadoBusqueda {
-    const usuario = usuariosMap.get(nombre);
-    if (usuario === undefined)
-        return { tipo: "no_encontrado" };
-    else
-
-        return { tipo: "exito", usuario };
-}
+            return { tipo: "exito", usuario };
+    }
 
 
 
