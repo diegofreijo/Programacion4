@@ -1,1 +1,3 @@
-Controlador.mostrarPlanDePrueba();
+import { mostrarPlanDePrueba } from "./controlador";
+
+mostrarPlanDePrueba();
