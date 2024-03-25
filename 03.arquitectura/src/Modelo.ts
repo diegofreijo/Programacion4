@@ -1,14 +1,14 @@
-namespace Modelo {
+module Modelo {
 
-    type Torta = { nombre: string, piso1: Piso, piso2: Piso, piso3: Piso };
-    type Piso = { cocinero1: Cocinero, cocinero2: Cocinero };
-    type Cocinero = string;
+    export type Torta = { nombre: string, piso1: Piso, piso2: Piso, piso3: Piso };
+    export type Piso = { cocinero1: Cocinero, cocinero2: Cocinero };
+    export type Cocinero = string;
 
-    interface Plan {
+    export interface Plan {
         tortas: Torta[]
     }
 
-    function crearPlan(cocineros: Cocinero[], nombresTortas: string[]): Plan {
+    export function crearPlan(cocineros: Cocinero[], nombresTortas: string[]): Plan {
         // TODO: verificar que las cantidades de tortas y cocineros tenga sentido o tirar error
         // TODO: verificar que las tortas no repiten nombre
         // TODO: verificar que hay cantidad par de cocineros

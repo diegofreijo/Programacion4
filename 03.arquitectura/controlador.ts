@@ -1,5 +1,0 @@
-namespace Controlador {
-    function crearPlan() {
-        
-    }
-}
