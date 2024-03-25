@@ -13,11 +13,11 @@ namespace p2 {
 
     // Aca funciona!
 
-    const r1: ResultadoBusqueda<string> = { tipo: "exito", encontrado: "Pepe" };
-    console.log(formatearResultado(r1));
+    // const r1: ResultadoBusqueda<string> = { tipo: "exito", encontrado: "Pepe" };
+    console.log(formatearResultado({ tipo: "exito", encontrado: "Pepe" }));
 
-    const r2: ResultadoBusqueda<number> = { tipo: "exito", encontrado: 33 };
-    console.log(formatearResultado(r2));
+    // const r2: ResultadoBusqueda<number> = { tipo: "exito", encontrado: 33 };
+    console.log(formatearResultado({ tipo: "exito", encontrado: 33 }));
 
     const r3: ResultadoBusqueda<boolean> = { tipo: "no_encontrado" };
     console.log(formatearResultado(r3));
