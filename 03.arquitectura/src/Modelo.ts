@@ -12,9 +12,13 @@ export function crearPlan(cocineros: Cocinero[], nombresTortas: string[], semill
     // TODO: verificar que hay cantidad par de cocineros
 
     console.log(`Comenzando el armado del plan`);
-    console.log(`Tortas:                ${nombresTortas}`);
+    
+    console.log(`Tortas`);
+    console.log(nombresTortas);
+    
     cocineros = mezclar(cocineros, semilla);
-    console.log(`Cocineros mezclados:   ${cocineros}`);
+    console.log(`Cocineros mezclados:`);
+    console.log(cocineros);
 
     var tortas: Torta[] = [];
 
@@ -52,17 +56,16 @@ function armarPiso(cocineros: Cocinero[], numeroPiso: number): Piso {
 }
 
 
-// Mapea numeroPiso a estos indices de cocineros
-// Izquierda
+// Desplaza los cocineros
+// Pares: 2 a la izquierda
 // 0 -> -2 -> 4
 // 2 -> 0
 // 4 -> 2
 
-// Derecha
+// Impares: 2 a la derecha
 // 1 -> 3
 // 3 -> 5
 // 5 -> 7 -> 1
-
 function desplazarCocineros(cocineros: Cocinero[]): Cocinero[] {
     var ret: Cocinero[] = [];
     var direccion = -2;
@@ -92,7 +95,6 @@ function desplazarCocineros(cocineros: Cocinero[]): Cocinero[] {
 // }
 
 function mezclar<T>(array: T[], semilla: number) {
-
     // Un random que soporta semillas
     var MersenneTwister = require('mersenne-twister');
     var generator = new MersenneTwister(semilla);

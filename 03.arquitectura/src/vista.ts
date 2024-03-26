@@ -1,11 +1,11 @@
 import { Piso, Plan } from "./modelo";
 
-export function mostrarEnConsola(plan: Plan) {
+export function mostrarEnConsola(plan: Plan, cabecera1: string, cabecera2: string, cabecera3: string) {
     var { AsciiTable3, AlignmentEnum } = require('ascii-table3');
 
     var table =
         new AsciiTable3('Plan')
-            .setHeading('', 'Piso 1', 'Piso 2', 'Piso 3')
+            .setHeading('', cabecera1, cabecera2, cabecera3)
             .addRowMatrix(
                 plan.tortas.map(t => [t.nombre, verPiso(t.piso1), verPiso(t.piso2), verPiso(t.piso3)])
             );
@@ -14,6 +14,6 @@ export function mostrarEnConsola(plan: Plan) {
 }
 
 function verPiso(piso: Piso): string {
-    return `${piso.cocinero1}, ${piso.cocinero2}`;
+    return `${piso.cocinero1} / ${piso.cocinero2}`;
 }
 
