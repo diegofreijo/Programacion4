@@ -1,6 +1,6 @@
-export type Torta = { nombre: string, piso1: Piso, piso2: Piso, piso3: Piso };
-export type Piso = { cocinero1: Cocinero, cocinero2: Cocinero };
 export type Cocinero = string;
+export type Piso = { cocinero1: Cocinero, cocinero2: Cocinero };
+export type Torta = { nombre: string, piso1: Piso, piso2: Piso, piso3: Piso };
 
 export interface Plan {
     tortas: Torta[]
@@ -76,23 +76,6 @@ function desplazarCocineros(cocineros: Cocinero[]): Cocinero[] {
     }
     return ret;
 }
-
-
-// function armarPiso(cocineros: Cocinero[]): Piso[] {
-//     var ret: Piso[] = [];
-//     for (let i = 0; i < cocineros.length; i += 2) {
-//         const cocinero1 = cocineros[i];
-//         const cocinero2 = cocineros[i + 1];
-//         ret.push({ cocinero1, cocinero2 });
-//     }
-//     return ret;
-// }
-
-// function pisosValidos(pisos: Piso[]): boolean {
-//     return pisos.every((piso, i) => {
-
-//     });
-// }
 
 function mezclar<T>(array: T[], semilla: number) {
     // Un random que soporta semillas
