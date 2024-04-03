@@ -1,10 +1,7 @@
 export type Cocinero = string;
 export type Piso = { cocinero1: Cocinero, cocinero2: Cocinero };
 export type Torta = { nombre: string, piso1: Piso, piso2: Piso, piso3: Piso };
-
-export interface Plan {
-    tortas: Torta[]
-}
+export type Plan = { tortas: Torta[] };
 
 export function crearPlan(cocineros: Cocinero[], nombresTortas: string[], semilla: number): Plan {
     // TODO: verificar que las cantidades de tortas y cocineros tenga sentido o tirar error
@@ -12,10 +9,10 @@ export function crearPlan(cocineros: Cocinero[], nombresTortas: string[], semill
     // TODO: verificar que hay cantidad par de cocineros
 
     console.log(`Comenzando el armado del plan`);
-    
+
     console.log(`Tortas`);
     console.log(nombresTortas);
-    
+
     cocineros = mezclar(cocineros, semilla);
     console.log(`Cocineros mezclados:`);
     console.log(cocineros);

@@ -1,4 +1,3 @@
-import { mostrarPlanDePrueba, mostrarPlanDeTPs } from "./controlador";
+import { mostrarPlanDePrueba } from "./controlador";
 
-// mostrarPlanDePrueba(22);
-mostrarPlanDeTPs(10);
+mostrarPlanDePrueba(22);
