@@ -8,3 +8,28 @@ export function mostrarPlanDePrueba(semilla: number) {
 
     mostrarEnConsola(plan, "Piso 1", "Piso 2", "Piso 3");
 }
+
+export function mostrarPlanDeTPs(semilla: number) {
+    const cocineros: Cocinero[] = [
+        "BORSA,     AGUSTIN ",
+        "BRAGAZZI,  BELEN   ",
+        "FRANCO,    VICTORIA",
+        "GULLERIAN, ANUSH   ",
+        "MIRAMONT,  ROCIO   ",
+        "OLGUIN,    MANUEL  ",
+        "PACIO,     NOELI   ",
+        "RODRIGUES, AGUSTIN ",
+        "ROZENBERG, LUCAS   ",
+        "ZAPOLSKI,  JIMENA  ",
+        "FRANCO,    MARTINA ",
+        "FREIJO,    DIEGO   ",
+    ];
+
+    const nombresTortas: string[] = [
+        "App1", "App2", "App3",
+        "App4", "App5", "App6",
+    ];
+    const plan = crearPlan(cocineros, nombresTortas, semilla);
+
+    mostrarEnConsola(plan, "TP2: modelado", "TP3: backend", "TP4: frontend");
+}

@@ -1,0 +1,13 @@
+import { Cocinero, Plan, crearPlan } from "./modelo";
+import { mostrarEnConsola } from "./vista";
+
+export function mostrarPlanDePrueba(semilla: number) {
+    const cocineros: Cocinero[] = ["C1", "C2", "C3", "C4", "C5", "C6"];
+    const nombresTortas: string[] = ["Lemon Pie", "Brownie", "Marquise"];
+
+    // LLamo al Modelo
+    const plan: Plan = crearPlan(cocineros, nombresTortas, semilla);
+
+    // LLamo a la Vista
+    mostrarEnConsola(plan, "Piso 1", "Piso 2", "Piso 3");
+}
