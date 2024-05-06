@@ -1,13 +1,6 @@
 import sqlite3 from 'sqlite3'
 import { open } from 'sqlite'
 
-async function abrirConexion() {
-    return open({
-        filename: 'db.sqlite',
-        driver: sqlite3.Database
-    })
-}
-
 export interface Ciudad {
     nombre: string,
     temperatura: number
@@ -21,13 +14,32 @@ export interface Alerta {
     temperaturaActual: number
 }
 
-// export function agregarCiudad(nombre: string): Ciudad {
-//     // Agrega una nueva Ciudad a la base de datos
-// }
+async function abrirConexion() {
+    return open({
+        filename: 'db.sqlite',
+        driver: sqlite3.Database
+    })
+}
 
-// export function borrarCiudad(ciudad: Ciudad): void {
-//     // Borra una ciudad de la base de datos
-// }
+// Modelo.ts
+export async function agregarCiudad(nombre: string): Promise<Ciudad> {
+    // Agrega una nueva Ciudad a la base de datos
+    const db = await abrirConexion();
+
+    const temperatura = 0;
+    const query = `INSERT INTO Ciudad (nombre, temperatura) VALUES ('${nombre}', ${temperatura})`;
+    await db.run(query);
+
+    return { nombre, temperatura };
+}
+
+export async function borrarCiudad(nombre: string): Promise<void> {
+    // Borra una ciudad de la base de datos
+    const db = await abrirConexion();
+
+    const query = `DELETE FROM Ciudad WHERE nombre='${nombre}'`;
+    await db.run(query);
+}
 
 export async function consultarListado(): Promise<Listado> {
     // Arma un Listado que contiene todas las ciudades en la base de datos
@@ -41,3 +53,4 @@ export async function consultarListado(): Promise<Listado> {
 // export function verificarAlertas(): Alerta[] {
 //     // Proceso que se ejecuta cada una hora y chequea si hay que mandar una alerta
 // }
+
