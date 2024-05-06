@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import { agregarCiudad, borrarCiudad, consultarListado } from "./Modelo";
+import { agregarCiudad, borrarCiudad, consultarListado, verificarAlertas } from "./Modelo";
 
 dotenv.config();
 
@@ -23,6 +23,12 @@ app.get("/borrar/:nombre", async (req: Request, res: Response) => {
     const nombre = req.params.nombre;
     await borrarCiudad(nombre);
     res.send("OK");
+});
+
+
+app.get("/verificarAlertas", async (req: Request, res: Response) => {
+    const alertas = await verificarAlertas();
+    res.send(alertas);
 });
 
 app.listen(port, () => {

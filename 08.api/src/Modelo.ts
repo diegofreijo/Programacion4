@@ -46,11 +46,36 @@ export async function consultarListado(): Promise<Listado> {
     const db = await abrirConexion();
 
     const ciudades: Ciudad[] = await db.all<Ciudad[]>('SELECT * FROM Ciudad');
-    console.log(ciudades);
     return { ciudades: ciudades };
 }
 
-// export function verificarAlertas(): Alerta[] {
-//     // Proceso que se ejecuta cada una hora y chequea si hay que mandar una alerta
-// }
+export async function verificarAlertas(): Promise<Alerta[]> {
+    // Proceso que se ejecuta cada una hora y chequea si hay que mandar una alerta
+    const db = await abrirConexion();
 
+    const ciudades: Ciudad[] = await db.all<Ciudad[]>('SELECT * FROM Ciudad');
+
+    var alertas = ciudades.map(async ciudad => {
+        // Busco la latitud y longitud de esta ciudad
+        const response1 = await fetch(
+            `https://geocoding-api.open-meteo.com/v1/search?name=${ciudad.nombre}&count=1&language=en&format=json`
+        );
+        const response1Json = await response1.json() as any;
+        console.log(response1Json);
+        const { latitude, longitude } = response1Json.results[0];
+
+        console.log(latitude);
+        console.log(longitude);
+
+        // Busco la ultima temperatura en base a la lat y long
+        const response2 = await fetch(
+            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m&forecast_days=1`
+        );
+        const { current } = await response2.json() as any;
+        console.log(`${ciudad.nombre}: ${current.temperature_2m}`);
+
+        return null;
+    });
+
+    return [];
+}
