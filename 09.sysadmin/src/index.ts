@@ -1,7 +1,7 @@
 import express, { Express, Handler, NextFunction, Request, Response } from "express";
 import dotenv from "dotenv";
 import { agregarCiudad, borrarCiudad, consultarListado, verificarAlertas } from "./Modelo";
-import { log } from "console";
+import cors from "cors";
 
 dotenv.config();
 
@@ -18,6 +18,8 @@ function errorHandler(
     response.status(500).json({ mensaje: error.message });
 }
 
+app.options('*', cors());
+app.use(cors());
 
 app.use(express.json());
 
