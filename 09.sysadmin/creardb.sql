@@ -1,6 +1,6 @@
 CREATE TABLE Ciudad (
 	id INTEGER PRIMARY KEY,
-    nombre TEXT NOT NULL,
+    nombre TEXT NOT NULL UNIQUE,
    	temperatura INTEGER NOT NULL
 );
 
