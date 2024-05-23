@@ -22,25 +22,9 @@ export default function Home() {
   return (
     <>
       <h1 className="text-3xl mb-8">Listado</h1>
-      {/* <div className="overflow-x-auto">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Ultima Temperatura</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {listado.ciudades.map(c =>
-              <Ciudad key={c.id} ciudad={c}></Ciudad>
-            )}
-          </tbody>
-        </table>
-      </div> */}
-
-
-      <div className="grid grid-cols-4 gap-16">
+      <div className="grid flex 
+        lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 
+        gap-8 p-4">
         {listado.ciudades.map(c =>
           <Ciudad key={c.id} ciudad={c}></Ciudad>
         )}
