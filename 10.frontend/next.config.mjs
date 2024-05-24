@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    env: {
-        api: 'http://15.228.226.164'
-    }
+    env: { }
 };
 
 export default nextConfig;
