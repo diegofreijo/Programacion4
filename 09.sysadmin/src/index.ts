@@ -2,6 +2,7 @@ import express, { Express, Handler, NextFunction, Request, Response } from "expr
 import dotenv from "dotenv";
 import { agregarCiudad, borrarCiudad, consultarListado, verificarAlertas } from "./Modelo";
 import cors from "cors";
+import ip from 'ip';
 
 dotenv.config();
 
@@ -67,5 +68,7 @@ app.use(errorHandler);
 
 
 app.listen(port, () => {
-    console.log(`[server]: Servidor iniciado en http://localhost:${port}`);
+    const ipAddress = ip.address();
+    console.log(`[server]: Servidor iniciado en http://${ipAddress}:${port}`);
+
 });
