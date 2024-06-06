@@ -6,9 +6,7 @@ import cors from "cors";
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
-
-
+const port = process.env.PORT || 8000;
 
 function errorHandler(
     error: Error, request: Request, response: Response, next: NextFunction
@@ -18,7 +16,8 @@ function errorHandler(
     response.status(500).json({ mensaje: error.message });
 }
 
-app.options('*', cors());
+// ...
+
 app.use(cors());
 
 app.use(express.json());
