@@ -34,6 +34,7 @@ app.get("/v1/listado", async (req: Request, res: Response, next: NextFunction) =
 
 app.post("/v1/ciudad/agregar", async (req: Request, res: Response, next: NextFunction) => {
     try {
+        console.log(req.body);
         const nombre = req.body.nombre;
         const ciudad = await agregarCiudad(nombre);
         res.send(ciudad);
