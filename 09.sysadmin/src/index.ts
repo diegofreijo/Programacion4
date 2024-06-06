@@ -16,6 +16,8 @@ function errorHandler(
     response.status(500).json({ mensaje: error.message });
 }
 
+// ...
+
 app.use(cors());
 
 app.use(express.json());

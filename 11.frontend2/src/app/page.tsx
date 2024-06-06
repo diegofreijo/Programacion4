@@ -5,7 +5,6 @@ import { Listado } from "./Modelo";
 import api from "./utils";
 import Ciudad from "@/components/Ciudad";
 
-
 const LISTADO_INICIAL: Listado = { ciudades: [] };
 
 export default function Home() {
