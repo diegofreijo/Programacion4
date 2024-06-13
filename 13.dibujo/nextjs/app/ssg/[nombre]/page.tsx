@@ -2,8 +2,10 @@ import Layout from "@/components/layout";
 import { PageProps, Post, buscaPosts, numeroParaLaQuiniela } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
+// Indico que no haga caso a los parametros dinamicos para forzar SSG
 export const dynamicParams = false;
 
+// Defino cuales son los parametros que va a dibujar en build
 export async function generateStaticParams() {
     return [{ nombre: 'pepe' }, { nombre: 'lala' }];
 }

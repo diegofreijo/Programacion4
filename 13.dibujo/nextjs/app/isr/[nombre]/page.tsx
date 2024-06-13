@@ -2,14 +2,16 @@ import Layout from "@/components/layout";
 import { PageProps, Post, buscaPosts, numeroParaLaQuiniela } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
+// Indico que SI le haga caso a los parametros dinamicos asi pasamos de SSG a ISR
 export const dynamicParams = true;
 
+// Defino cuales son los parametros que va a dibujar en build
 export async function generateStaticParams() {
     return [{ nombre: 'pepe' }, { nombre: 'lala' }];
 }
 
 export default async function ISR(props: PageProps) {
-    
+
     // Muy parecido a SSR
     const posts = await buscaPosts();
 
