@@ -31,7 +31,7 @@ export default function Menu() {
                         </NavigationMenuLink>
                     </Link>
 
-                    <Link href="/csr/pepe" legacyBehavior passHref>
+                    <Link href="/csr?nombre=pepe" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             CSR
                         </NavigationMenuLink>

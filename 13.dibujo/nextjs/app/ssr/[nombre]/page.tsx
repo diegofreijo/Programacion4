@@ -6,6 +6,8 @@ export default async function SSR(props: PageProps) {
     // Un momento, que facil se ve esto 🤔
     const posts = await buscaPosts();
 
+    console.log("Dibujando pagina en SSR con nombre:", props.params.nombre);
+
     return (
         <>
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">

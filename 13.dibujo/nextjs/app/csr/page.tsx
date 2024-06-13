@@ -1,17 +1,16 @@
 // Si quiero que se ejecute en el cliente tengo que aclararlo con este string magico
 "use client"
 
-import Layout from "@/components/layout";
-import { PageProps, Post, buscaPosts, numeroParaLaQuiniela } from "@/lib/utils";
-import { useRouter } from "next/router";
+import { Post, buscaPosts, numeroParaLaQuiniela } from "@/lib/utils";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function CSR() {
     // Esto ya no anda en el cliente porque no puedo usar async 🫠
     // const posts = await buscaPosts();
 
-    const router = useRouter();
-    const nombre = router.query.nombre;
+    const searchParams = useSearchParams();
+    const nombre = searchParams.get("nombre");
 
     // La danza de useState de siempre
     const [posts, setPosts] = useState<Post[]>([]);

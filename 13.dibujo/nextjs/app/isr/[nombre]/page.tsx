@@ -9,6 +9,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ISR(props: PageProps) {
+    
     // Muy parecido a SSR
     const posts = await buscaPosts();
 
