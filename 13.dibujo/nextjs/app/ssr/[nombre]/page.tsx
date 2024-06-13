@@ -1,7 +1,7 @@
-import { buscaPosts } from "@/lib/utils";
+import { PageProps, buscaPosts } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-export default async function SSR() {
+export default async function SSR(props: PageProps) {
 
     // Un momento, que facil se ve esto 🤔
     const posts = await buscaPosts();
@@ -11,6 +11,8 @@ export default async function SSR() {
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                 SSR: Server Side Rendering
             </h1>
+
+            <p className="mt-5">Hola {props.params.nombre}</p>
 
             <p className="mt-5">{new Date().toLocaleString()}</p>
 

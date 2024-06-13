@@ -1,19 +1,25 @@
 // Si quiero que se ejecute en el cliente tengo que aclararlo con este string magico
 "use client"
 
-import { Post, buscaPosts } from "@/lib/utils";
+import Layout from "@/components/layout";
+import { PageProps, Post, buscaPosts, numeroParaLaQuiniela } from "@/lib/utils";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function CSR() {
     // Esto ya no anda en el cliente porque no puedo usar async 🫠
     // const posts = await buscaPosts();
 
+    const router = useRouter();
+    const nombre = router.query.nombre;
+
     // La danza de useState de siempre
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
+        console.log("Dibujando pagina en CSR con nombre:", nombre);
         buscaPosts().then(setPosts);
-    }, []);
+    }, [nombre]);
 
     // Con esto puedo evaluar si estoy en el cliente o no para ver cuando dibujar la fecha
     const [isClient, setIsClient] = useState(false)
@@ -25,7 +31,11 @@ export default function CSR() {
                 CSR: Client Side Rendering
             </h1>
 
+            <p className="mt-5">Hola {isClient ? nombre : "(aca va a ir el nombre)"}</p>
+
             <p className="mt-5">{isClient ? new Date().toLocaleString() : "(aca va a ir la fecha)"}</p>
+
+            <p className="mt-5">Jugale al {isClient ? numeroParaLaQuiniela() : -1}</p>
 
             <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                 Posts

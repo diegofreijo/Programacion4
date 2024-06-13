@@ -25,25 +25,25 @@ export default function Menu() {
                 <NavigationMenuItem>
 
 
-                    <Link href="/ssr" legacyBehavior passHref>
+                    <Link href="/ssr/pepe" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             SSR
                         </NavigationMenuLink>
                     </Link>
 
-                    <Link href="/csr" legacyBehavior passHref>
+                    <Link href="/csr/pepe" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             CSR
                         </NavigationMenuLink>
                     </Link>
 
-                    <Link href="/ssg" legacyBehavior passHref>
+                    <Link href="/ssg/pepe" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             SSG
                         </NavigationMenuLink>
                     </Link>
 
-                    <Link href="/isr" legacyBehavior passHref>
+                    <Link href="/isr/pepe" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             ISR
                         </NavigationMenuLink>
