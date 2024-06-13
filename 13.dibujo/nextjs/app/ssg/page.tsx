@@ -1,15 +1,16 @@
-import { buscaPosts } from "@/lib/utils";
+import Layout from "@/components/layout";
+import { Post, buscaPosts } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-export default async function SSR() {
+export default async function SSG() {
 
-    // Un momento, que facil se ve esto 🤔
+    // Muy parecido a SSR
     const posts = await buscaPosts();
 
     return (
         <>
             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-                SSR: Server Side Rendering
+                SSG: Static Site Generation
             </h1>
 
             <p className="mt-5">{new Date().toLocaleString()}</p>

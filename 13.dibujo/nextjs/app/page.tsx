@@ -1,5 +1,8 @@
 export default function Home() {
   return (
-    <h1>Hola!</h1>
+    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      Hola! Que dibujo vas a querer hoy?
+    </h1>
+
   );
 }

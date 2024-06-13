@@ -5,14 +5,15 @@ import { Post, buscaPosts } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 export default function CSR() {
+    // Esto ya no anda en el cliente porque no puedo usar async 🫠
+    // const posts = await buscaPosts();
+
+    // La danza de useState de siempre
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
         buscaPosts().then(setPosts);
     }, []);
-
-    // Esto ya no anda en el cliente porque no puedo usar async
-    // const posts = await buscaPosts();
 
     // Con esto puedo evaluar si estoy en el cliente o no para ver cuando dibujar la fecha
     const [isClient, setIsClient] = useState(false)
