@@ -29,7 +29,9 @@ export default function RootLayout({
         >
           <Menu></Menu>
 
-          {children}
+          <div className="container mx-auto p-4">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
