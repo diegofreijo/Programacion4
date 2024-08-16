@@ -1,0 +1,13 @@
+version: "3" # versión de docker-compose
+services: # definiendo servicio/s
+  backend_principal: # nombre del servicio
+    image: tupe # imagen dada
+    build: . # directorio para construir, aquí es el directorio raíz
+    ports:
+      - "8080:8080" # definiendo el puerto para nuestra aplicación
+
+  backend_pepe: # nombre del servicio
+    image: pepe # imagen dada
+    build: . # directorio para construir, aquí es el directorio raíz
+    ports:
+      - "8081:8080" # definiendo el puerto para nuestra aplicación
