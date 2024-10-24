@@ -1,9 +1,10 @@
 import { Component, createSignal, For } from "solid-js";
 import { ingredientes } from "./Cocina";
 
-export const Ensalada: Component<{}> = (props) => {
-  const [contenidos, setContenidos] = createSignal(["🍅"]);
+const [contenidos, setContenidos] = createSignal(["🍅"]);
 
+export const Ensalada: Component<{}> = (props) => {
+  
   return (
     <div>
       {contenidos()}

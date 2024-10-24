@@ -4,8 +4,9 @@ import { ingredientes } from "./Cocina";
 export const AutoEnsalada: Component<{}> = (props) => {
   const [contenidos, setContenidos] = createSignal(["🍅"]);
 
-  setInterval(() => {    
-    const nuevo = ingredientes()[Math.floor(Math.random() * ingredientes().length)];
+  setInterval(() => {
+    const nuevo =
+      ingredientes()[Math.floor(Math.random() * ingredientes().length)];
     setContenidos((actual) => [...actual, nuevo]);
   }, 1000);
 

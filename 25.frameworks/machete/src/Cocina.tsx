@@ -12,7 +12,7 @@ export const Cocina: Component<{}> = (props) => {
       <Ensalada></Ensalada>
       <Ensalada></Ensalada>
       <Ensalada></Ensalada>
-      <AutoEnsalada></AutoEnsalada>
+      {/* <AutoEnsalada></AutoEnsalada> */}
 
       <input
         type="text"
